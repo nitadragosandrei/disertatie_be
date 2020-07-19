@@ -4,17 +4,19 @@ const config = {
 };
 const dynamoDb = new AWS.DynamoDB.DocumentClient(config);
 
-export const put = async (event, context, callback) => {
+export const get = async (event, context, callback) => {
   const params = {
     TableName: "myTable",
-    Item: {
-      userID: "2",
-      noteID: "2",
-      Dragos: "are pula mearee",
-    },
   };
   try {
-    return dynamoDb.put(params).promise();
+    const response = await dynamoDb.scan(params).promise();
+    console.log(response);
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        Items: response.Items,
+      }),
+    };
   } catch (error) {
     console.log(error);
   }

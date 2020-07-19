@@ -51,8 +51,15 @@ functions:
           path: hello
           method: get
   putTest:
-    handler: src/handlers/put.put
+    handler: src/handlers/post.post
     events:
       - http:
           path: putTest
-          method: put
+          method: post
+  getTest:
+    handler: src/handlers/get.get
+    timeout: 10
+    events:
+      - http:
+          path: getTest
+          method: get
