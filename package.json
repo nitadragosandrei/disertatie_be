@@ -19,6 +19,7 @@
     "serverless-offline": "^5.3.3"
   },
   "dependencies": {
+    "middy": "^0.36.0",
     "uuid": "^8.1.0"
   }
 }

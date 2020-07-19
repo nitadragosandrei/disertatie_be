@@ -16,6 +16,9 @@ export const get = async (event, context, callback) => {
       body: JSON.stringify({
         Items: response.Items,
       }),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
     };
   } catch (error) {
     console.log(error);
